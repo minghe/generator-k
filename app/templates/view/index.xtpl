@@ -1,0 +1,11 @@
+{{extend ("./layout/layout")}}
+
+{{#block ("head")}}
+    <style>
+
+    </style>
+{{/block}}
+
+{{#block ("body")}}
+<p>这是个 koa 的测试页面</p>
+{{/block}}

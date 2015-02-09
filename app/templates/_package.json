@@ -1,0 +1,43 @@
+{
+    "name": "<%= basename %>",
+    "version": "0.0.0",
+    "main": "app.js",
+    "scripts": {
+        "start": "NODE_ENV=local DEBUG=<%= basename%> node --harmony app.js",
+        "test": "mocha --harmony"
+    },
+    "dependencies": {
+        "koa": "0.6.0",
+        "koa-router": "3.4.0",
+        "koa-compress": "1.0.6",
+        "koa-static-cache": "1.2.0",
+        <% if(db==="none"){ %>
+        "koa-session": "3.1.0",
+        <% }else{ %>
+        "koa-generic-session": "1.6.0",
+        <% }%>
+        <% if(db==="redis"){ %>
+        "koa-redis": "1.0.0",
+        <% }%>
+        <% if(db==="mongodb"){ %>
+        "koa-mongo": "0.2.0",
+        "koa-generic-session-mongo": "0.1.1"
+        <% }%>
+        "koa-validator": "0.6.3",
+        "koa-bodyparser": "1.3.0",
+        "koa-onerror": "1.2.0",
+        "lru-cache": "2.5.0",
+        "mini-logger": "0.3.0",
+        "xtemplate": "1.2.4",
+        "xtpl": "2.1.0",
+        "debug": "2.0.0",
+        "co-urllib": "0.2.3",
+        "co": "3.1.0",
+        "underscore": "1.7.0"
+    },
+    "devDependencies": {
+        "supertest": "^0.12.1",
+        "mocha": "^1.18.2",
+        "should": "3.3.2"
+    }
+}

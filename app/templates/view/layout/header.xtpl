@@ -1,0 +1,3 @@
+<header>
+    <h2 class="logo"><a href="/"><%=basename%></a></h2>
+</header>

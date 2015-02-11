@@ -12,6 +12,10 @@ generator-k 是 简单的koa项目工程生成器，带有经过筛选的优秀�
 
 使用 [xtemplate](https://github.com/xtemplate/xtemplate/blob/master/docs/syntax-cn.md) 模板引擎，xtemplate是非常优秀的模板引擎，性能和拓展性都出类拔萃。
 
+### 安装
+
+    npm install -g yo generator-k
+
 ### 生成工程
 
     yo k

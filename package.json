@@ -1,6 +1,6 @@
 {
   "name": "generator-k",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "A best Koa generator",
   "keywords": [
     "yeoman-generator",
@@ -16,7 +16,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/peter-vilja/generator-koa.git"
+    "url": "git://github.com/minghe/generator-k.git"
   },
   "scripts": {
     "test": "mocha"

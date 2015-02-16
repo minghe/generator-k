@@ -1,6 +1,6 @@
 {
   "name": "generator-k",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A best Koa generator",
   "keywords": [
     "yeoman-generator",

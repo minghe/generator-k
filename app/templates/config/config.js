@@ -9,9 +9,6 @@ var config = {
     "appName": "<%= basename%>",
     //端口号配置
     "port": 3000,
-    "host": 'http://localhost:7070/',
-    //是否开启调试，调试的情况下会输出错误信息
-    "debug": true,
     //模板所在的目录
     "viewDir": path.join(__dirname,'..','view'),
     "logDir": path.join(__dirname,'..', 'log'),
@@ -28,7 +25,7 @@ var config = {
 
 //当NODE_ENV环境变量值为local时
 //本地调试环境
-if(process.env.NODE_ENV == 'local'){
+if(process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'development'){
     config = _.extend(config,local);
 }
 

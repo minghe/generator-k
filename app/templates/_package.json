@@ -33,7 +33,8 @@
         "debug": "2.0.0",
         "co-urllib": "0.2.3",
         "co": "3.1.0",
-        "underscore": "1.7.0"
+        "underscore": "1.7.0",
+        "mini-logger": "1.0.0"
     },
     "devDependencies": {
         "supertest": "^0.12.1",

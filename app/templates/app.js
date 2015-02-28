@@ -1,8 +1,16 @@
 var debug = require('debug')('<%=basename%>');
-
 var koa = require('koa');
 //配置文件
 var config = require('./config/config');
+
+//log记录
+var Logger = require('mini-logger');
+var logger = Logger({
+    dir: config.logDir,
+    categories: [ 'router','model','controller'],
+    format: 'YYYY-MM-DD-[{category}][.log]'
+});
+
 var app = koa();
 app.use(function *(next){
     //config 注入中间件，方便调用配置信息
@@ -71,3 +79,6 @@ appRouter(app);
 
 app.listen(config.port);
 console.log('listening on port %s',config.port);
+
+module.exports = app;
+

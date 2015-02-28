@@ -47,6 +47,7 @@ KGenerator.prototype.app = function app() {
     this.mkdir('public/js');
     this.mkdir('public/css');
     this.mkdir('test');
+    this.mkdir('log');
     this.directory('config', 'config');
     this.directory('view', 'view');
     this.directory('controller', 'controller');

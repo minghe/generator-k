@@ -42,16 +42,19 @@ app.use(session(app));
 <% }else{%>
 //session中间件
 var session = require('koa-generic-session');
+<% if(db==="mongodb"){ %>
+var MongoStore = require('koa-sess-mongo-store');
 var sessionConfig = {
-    store: redisStore,
+    store: new MongoStore(),
     prefix: '<%=basename%>:sess:',
     key: '<%=basename%>.sid'
 };
-<% if(db==="mongodb"){ %>
-var MongoStore = require('koa-sess-mongo-store');
-sessionConfig.store = new MongoStore();
 <%}else if(db==="redis"){%>
-sessionConfig.store = redisStore;
+    var sessionConfig = {
+    store: redisStore,
+    prefix: '<%=basename%>:sess:',
+    key: '<%=basename%>.sid'
+    };
 <%}%>
 app.use(session(sessionConfig));
 <% }%>

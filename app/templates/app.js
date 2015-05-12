@@ -7,11 +7,12 @@ var config = require('./config/config');
 var Logger = require('mini-logger');
 var logger = Logger({
     dir: config.logDir,
-    categories: [ 'router','model','controller'],
+    categories: [ 'http'],
     format: 'YYYY-MM-DD-[{category}][.log]'
 });
 
 var app = koa();
+app.context.logger = logger;
 app.use(function *(next){
     //config 注入中间件，方便调用配置信息
     if(!this.config){
@@ -23,11 +24,11 @@ app.use(function *(next){
 var onerror = require('koa-onerror');
 onerror(app);
 
-//xtpl模板引擎对koa的适配
+//xtemplate对koa的适配
 var xtplApp = require('xtpl/lib/koa');
 //xtemplate模板渲染
 xtplApp(app,{
-    //配置模板目录redis
+    //配置模板目录
     views: config.viewDir
 });
 

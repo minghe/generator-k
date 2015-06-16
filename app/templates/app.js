@@ -25,11 +25,11 @@ app.context.logger = logger;
 var onerror = require('koa-onerror');
 onerror(app);
 
-//xtpl模板引擎对koa的适配
+//xtemplate对koa的适配
 var xtplApp = require('xtpl/lib/koa');
 //xtemplate模板渲染
 xtplApp(app,{
-    //配置模板目录redis
+    //配置模板目录
     views: config.viewDir
 });
 

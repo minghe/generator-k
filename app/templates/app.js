@@ -3,16 +3,7 @@ var koa = require('koa');
 //配置文件
 var config = require('./config/config');
 
-//log记录
-var Logger = require('mini-logger');
-var logger = Logger({
-    dir: config.logDir,
-    categories: [ 'http'],
-    format: 'YYYY-MM-DD-[{category}][.log]'
-});
-
 var app = koa();
-app.context.logger = logger;
 app.use(function *(next){
     //config 注入中间件，方便调用配置信息
     if(!this.config){
@@ -20,6 +11,16 @@ app.use(function *(next){
     }
     yield next;
 });
+
+//log记录
+var Logger = require('mini-logger');
+var logger = Logger({
+    dir: config.logDir,
+    format: 'YYYY-MM-DD-[{category}][.log]'
+});
+
+//router use : this.logger.error(new Error(''))
+app.context.logger = logger;
 
 var onerror = require('koa-onerror');
 onerror(app);

@@ -27,7 +27,6 @@
         "koa-bodyparser": "1.3.0",
         "koa-onerror": "1.2.0",
         "lru-cache": "2.5.0",
-        "mini-logger": "0.3.0",
         "xtemplate": "4.2.4",
         "xtpl": "3.1.9",
         "debug": "2.0.0",

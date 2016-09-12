@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "main": "app.js",
     "scripts": {
-        "start": "NODE_ENV=local DEBUG=<%= basename%> node --harmony app.js",
+        "start": "cross-env NODE_ENV=local DEBUG=<%= basename%> node --harmony app.js",
         "test": "mocha --harmony"
     },
     "dependencies": {
@@ -33,7 +33,8 @@
         "co-urllib": "0.2.3",
         "co": "3.1.0",
         "underscore": "1.7.0",
-        "mini-logger": "1.0.0"
+        "mini-logger": "1.0.0",
+        "cross-env": "^2.0.1"
     },
     "devDependencies": {
         "supertest": "^0.12.1",

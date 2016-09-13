@@ -1,5 +1,7 @@
+var router = require('koa-router')();
 var controller = require('../controller/index');
-module.exports = function(app){
+module.exports = function(){
     //首页
-    app.get('/',controller.index);
+    router.get('/',controller.index);
+    return router;
 };

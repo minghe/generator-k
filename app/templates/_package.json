@@ -4,6 +4,7 @@
     "main": "app.js",
     "scripts": {
         "start": "cross-env NODE_ENV=local DEBUG=<%= basename%> node --harmony app.js",
+        "dev": "cross-env NODE_ENV=local DEBUG=demo supervisor --harmony -w *.js app.js",
         "test": "mocha --harmony"
     },
     "dependencies": {

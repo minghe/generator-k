@@ -3,37 +3,39 @@
     "version": "0.0.0",
     "main": "app.js",
     "scripts": {
-        "start": "NODE_ENV=local DEBUG=<%= basename%> node --harmony app.js",
+        "start": "cross-env NODE_ENV=local DEBUG=<%= basename%> node --harmony app.js",
+        "dev": "cross-env NODE_ENV=local DEBUG=demo supervisor --harmony -w . -i node_modules app.js",
         "test": "mocha --harmony"
     },
     "dependencies": {
-        "koa": "0.6.0",
-        "koa-router": "3.4.0",
-        "koa-compress": "1.0.6",
-        "koa-static-cache": "1.2.0",
+        "koa": "~1.2.0",
+        "koa-router": "~5.4.0",
+        "koa-compress": "~1.0.9",
+        "koa-static-cache": "~3.1.7",
         <% if(db==="none"){ %>
-        "koa-session": "3.1.0",
+        "koa-session": "~3.3.1",
         <% }else{ %>
-        "koa-generic-session": "1.6.0",
+        "koa-generic-session": "~1.10.2",
         <% }%>
         <% if(db==="redis"){ %>
-        "koa-redis": "1.0.0",
+        "koa-redis": "~2.1.1",
         <% }%>
         <% if(db==="mongodb"){ %>
-        "koa-mongo": "0.2.0",
-        "koa-generic-session-mongo": "0.1.1",
+        "koa-mongo": "~0.5.0",
+        "koa-generic-session-mongo": "~0.2.5",
         <% }%>
-        "koa-validator": "0.6.3",
-        "koa-bodyparser": "1.3.0",
-        "koa-onerror": "1.2.0",
-        "lru-cache": "2.5.0",
-        "xtemplate": "4.2.4",
-        "xtpl": "3.1.9",
-        "debug": "2.0.0",
-        "co-urllib": "0.2.3",
-        "co": "3.1.0",
-        "underscore": "1.7.0",
-        "mini-logger": "1.0.0"
+        "koa-validator": "~0.6.4",
+        "koa-bodyparser": "~2.2.0",
+        "koa-onerror": "~1.3.1",
+        "lru-cache": "~4.0.1",
+        "mini-logger": "~1.1.0",
+        "xtemplate": "~4.5.1",
+        "xtpl": "~3.2.0",
+        "debug": "~2.0.0",
+        "co-urllib": "~0.2.3",
+        "co": "~4.6.0",
+        "underscore": "~1.8.3",
+        "cross-env": "^2.0.1"
     },
     "devDependencies": {
         "supertest": "^0.12.1",

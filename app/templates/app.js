@@ -74,13 +74,11 @@ var staticDir = config.staticDir;
 app.use(staticCache(staticDir+'/js'));
 app.use(staticCache(staticDir+'/css'));
 
-//路由
-var router = require('koa-router');
-app.use(router(app));
-
 //应用路由
 var appRouter = require('./router/index');
-appRouter(app);
+var router = appRouter(router);
+app.use(router.routes())
+   .use(router.allowedMethods());
 
 app.listen(config.port);
 console.log('listening on port %s',config.port);
